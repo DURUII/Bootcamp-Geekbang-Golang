@@ -52,7 +52,6 @@ func (s *Set[T]) Undo() {
 	if err := s.mgr.Undo(); err != nil {
 		s.err = err
 	}
-	return
 }
 
 func (s *Set[T]) Size() int {
