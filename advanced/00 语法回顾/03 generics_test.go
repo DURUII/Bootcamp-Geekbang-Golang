@@ -1,11 +1,13 @@
 package ch00
 
 import (
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/exp/constraints"
-	"testing"
 )
 
+// Go 1.18 引入泛型
 // T 是类型参数（通常用单个大写字母表示）
 // [T any] 中的 any接口 是类型约束，还有例如，Comparable/Ordered、Stringer、TypeSet如Number
 func Filter[T any](s []T, predicate func(T) bool) []T {
