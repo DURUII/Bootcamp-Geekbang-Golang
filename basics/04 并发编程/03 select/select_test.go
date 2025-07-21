@@ -30,5 +30,6 @@ func TestAsync(t *testing.T) {
 	// 超时机制：slow response 是比 quick failure 还可怕的错误
 	case <-time.After(100 * time.Millisecond):
 		t.Error("timeout")
+		// 添加 default 会使 select 非阻塞
 	}
 }
