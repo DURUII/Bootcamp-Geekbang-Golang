@@ -1,4 +1,4 @@
-package ch00
+package server
 
 import (
 	"errors"
@@ -13,15 +13,6 @@ var (
 	ErrInvalidMaxConn  = errors.New("maxConn must be greater than zero")
 	ErrInvalidTimeout  = errors.New("timeout must be greater than zero")
 )
-
-type Server struct {
-	Addr     string
-	Port     int
-	Protocol string
-	Timeout  time.Duration
-	MaxConn  int
-	Err      error
-}
 
 type ServerBuilder struct {
 	Server
