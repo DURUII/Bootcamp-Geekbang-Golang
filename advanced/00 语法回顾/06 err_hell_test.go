@@ -1,6 +1,7 @@
 package ch00
 
 import (
+	"advanced/ch00/server"
 	"errors"
 	"testing"
 	"time"
@@ -9,7 +10,7 @@ import (
 )
 
 func TestServerBuilder(t *testing.T) {
-	srv, err := new(ServerBuilder).
+	srv, err := new(server.ServerBuilder).
 		New("127.0.0.1", -1).
 		WithProtocol("xxx").
 		WithMaxConn(1024).
@@ -19,9 +20,9 @@ func TestServerBuilder(t *testing.T) {
 	assert.Equal(t, "127.0.0.1", srv.Addr)
 	assert.Equal(t, 1024, srv.MaxConn)
 	assert.Equal(t, 30*time.Second, srv.Timeout)
-	assert.Equal(t, true, errors.Is(err, ErrInvalidPort))
-	assert.Equal(t, false, errors.Is(err, ErrInvalidAddress))
-	assert.Equal(t, true, errors.Is(err, ErrInvalidProtocol))
-	assert.Equal(t, false, errors.Is(err, ErrInvalidMaxConn))
-	assert.Equal(t, false, errors.Is(err, ErrInvalidTimeout))
+	assert.Equal(t, true, errors.Is(err, server.ErrInvalidPort))
+	assert.Equal(t, false, errors.Is(err, server.ErrInvalidAddress))
+	assert.Equal(t, true, errors.Is(err, server.ErrInvalidProtocol))
+	assert.Equal(t, false, errors.Is(err, server.ErrInvalidMaxConn))
+	assert.Equal(t, false, errors.Is(err, server.ErrInvalidTimeout))
 }

@@ -1,0 +1,7 @@
+server:
+  addr: "127.0.0.1"
+  port: 8080
+  extra:
+    protocol: "tcp"
+    maxconn: -1
+    timeout: 100
